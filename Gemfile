@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'htmlentities'
 gem 'html2haml'
+gem "haml"
 
 gem 'jquery-rails'
 gem 'turbolinks'

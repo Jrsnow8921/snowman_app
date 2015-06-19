@@ -1,0 +1,45 @@
+
+!!!
+%html
+  %head
+    %title
+      -if yield(:title).blank?
+        ="Snowman App"
+      -else
+        =yield(:title)
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true 
+    = csrf_meta_tag 
+  %body
+    %nav.navbar.navbar-fluid-top
+      .navbar-inner
+    .container-fluid{:style => 'margin-top:60px;'}
+      .row-fluid
+        .span12
+          -if flash[:notice]
+            .alert.alert-success
+              = link_to "×", "", :class => "close"
+              = flash[:notice]
+          -if flash[:alert]
+            .alert
+              = link_to "×", "", :class => "close"
+              = flash[:alert]
+          -if flash[:error]
+            .alert.alert-error
+              = link_to "×", "", :class => "close"
+              = flash[:error]
+      .row-fluid
+        .span12
+          %section
+            .page-header
+              %h1
+                -if yield(:title).blank?
+                  ="Snowman App"
+                -else
+                  =yield(:title)
+          = yield
+
+
+
+
